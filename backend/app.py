@@ -1,3 +1,4 @@
+from termios import TIOCPKT_FLUSHREAD
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 import datetime
@@ -36,9 +37,13 @@ posts_schema = PostSchema(many=True)
 def get_posts():
     all_posts = Post.query.all()
     results = posts_schema.dump(all_posts)
-    return jsonify(results)\
+    return jsonify(results)
 
-        
+@app.route('/<id>/', methods = ['GET'])
+def one_post(id):
+    post = Post.query.get(id)
+    return post_schema.jsonify(post)
+
 
 @app.route('/add', methods = ['POST'])
 def add_post():
@@ -51,6 +56,28 @@ def add_post():
     return post_schema.jsonify(post)
 
 
+@app.route('/<id>/', methods = ['PUT'])
+def edit_post(id):
+    post = Post.query.get(id)
+    
+    title = request.json["title"]
+    text = request.json["text"]
+
+    post.title = title
+    post.text = text
+
+    db.session.commit()
+
+    return post_schema.jsonify(post)
+
+
+@app.route('/<id>/', methods = ['DELETE'])
+def delete_post(id):
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+
+    return post_schema.jsonify(post)
 
 
 if __name__ == "__main__":
