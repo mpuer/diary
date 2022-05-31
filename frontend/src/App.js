@@ -37,11 +37,42 @@ function App() {
     setPost(newPost)
   }
 
+  const openForm = () => {
+    setEditPost({title:'', text:''})
+  }
+
+  const createdPost = (newPost) => {
+    const newPosts = [...post, newPost]
+    setPost(newPosts)
+  }
+
+  const deletePost = (onePost) => {
+    const newPost = post.filter(myPost => {
+      if (myPost.id === onePost.id) {
+        return false;
+      }
+
+      return true;
+    })
+
+    setPost(newPost)
+
+  }
   return (
     <div className="App">
+      <div className='row'>
+        <div className='col'>
       <h1>Hello World!</h1>
-      <Post post = {post} editPost = {editPost}/>
-      {editedPost ?  <Form post = {editedPost} newData={newData} />: null}
+
+        </div>
+
+        <div className='col'>
+        <button className='btn btn-success' onClick={openForm}>New Post!</button>
+
+        </div>
+      </div>
+      <Post post = {post} editPost = {editPost} deletePost = {deletePost}/>
+      {editedPost ?  <Form post = {editedPost} newData={newData} createdPost={createdPost}/>: null}
      
           </div>
   );

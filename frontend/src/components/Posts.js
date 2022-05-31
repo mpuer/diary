@@ -1,8 +1,15 @@
 import React from "react";
+import API from "./API";
 
 function Post(props) {
     const editPost = (post) => {
         props.editPost(post)
+    }
+
+    const deletePost = (post) => {
+        API.DeletePost(post.id)
+        .then(() => props.deletePost(post))
+
     }
     return (
         <div>
@@ -19,7 +26,8 @@ function Post(props) {
                         </div>
 
                         <div className="col">
-                            <button className="btn btn-danger">Delete</button>
+                            <button className="btn btn-danger"
+                            onClick={() => deletePost(each)}>Delete</button>
                         </div>
 
                     </div>

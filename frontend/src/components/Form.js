@@ -17,6 +17,11 @@ function Form(props) {
 
     }
 
+    const newPost = () => {
+        API.CreatePost({title, text})
+        .then(res => props.createdPost(res))
+        .catch(error => console.log(error))
+    }
     return (
         <div>
             {props.post ? ( 
@@ -29,7 +34,8 @@ function Form(props) {
                 <label  htmlFor = "text" className="form-label">Text</label>
                 <textarea rows="5" className="form-control" value={text} onChange={(e) => setText(e.target.value)} placeholder="Please enter text"/>
 
-                <button onClick={updatePost} className="btn btn-success mt-3">Update</button>
+                {props.post.id ? <button onClick={updatePost} className="btn btn-success mt-3">Update</button>:
+                <button onClick={newPost} className="btn btn-success mt-3">Post!</button>}
 
             </div>
             
