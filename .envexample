@@ -1,0 +1,2 @@
+SQLALCHEMY_DATABASE_URI=<<mysql://user:password@localhost/database_name>>
+MYSQL_HOST=<<127.0.0.1>>

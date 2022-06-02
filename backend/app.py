@@ -1,4 +1,4 @@
-from termios import TIOCPKT_FLUSHREAD
+# from termios import TIOCPKT_FLUSHREAD
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 import datetime
@@ -7,11 +7,12 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 
 load_dotenv()
+import os
 
 app = Flask(__name__)
 CORS(app)
-app.config["MYSQL_HOST"]="127.0.0.1"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost/python_proj'
+app.config["MYSQL_HOST"]=os.environ.get("MYSQL_HOST")
+app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get("SQLALCHEMY_DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
