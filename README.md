@@ -5,7 +5,7 @@ myDiary is an ongoing project that allows users to make posts. The idea for the 
 
 ## Technologies Used
 
-Binger uses React.js frontend with a Python/Flask backend. The application uses a mySQL database with SQLAlchemy and Flask-Marshamallow.
+Binger uses React.js frontend with a Python/Flask backend. The application uses a mySQL database with SQLAlchemy and Flask-Marshmallow.
 
 ![68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656163742d3230323332413f7374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d363144414642](https://user-images.githubusercontent.com/88907111/172952927-f835bdb7-46ed-46cf-b877-7ad0e31dc193.svg)
 ![68747470733a2f2f696d672e736869656c64732e696f2f62616467652f507974686f6e2d4646443433423f7374796c653d666f722d7468652d6261646765266c6f676f3d707974686f6e266c6f676f436f6c6f723d626c7565](https://user-images.githubusercontent.com/88907111/172952966-b6893de2-42c5-45c5-9861-62d79c5acec7.svg)
