@@ -1,6 +1,6 @@
 # myDiary
 
-myDiary is an ongoing project that allows users to make posts. The idea for the app was to create a virtual journal, which can also be used as a to-do list or somethin similar.
+myDiary is an ongoing project that allows users to make posts. The idea for the app was to create a virtual journal, which can also be used as a to-do list or something similar.
 
 
 ## Technologies Used
