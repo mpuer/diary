@@ -11,8 +11,11 @@ import os
 
 app = Flask(__name__)
 CORS(app)
-# app.config["MYSQL_HOST"]=os.environ.get("MYSQL_HOST")
-app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get("SQLALCHEMY_DATABASE_URI")
+app.config["MYSQL_DATABASE_USER"]=os.environ.get("MYSQL_DATABASE_USER")
+app.config["MYSQL_DATABASE_PASSWORD"]=os.environ.get("MYSQL_DATABASE_PASSWORD")
+app.config["MYSQL__DATABASE_HOST"]=os.environ.get("MYSQL__DATABASE_HOST")
+app.config["MYSQL_HOST"]=os.environ.get("MYSQL__DATABASE_DB")
+# app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get("SQLALCHEMY_DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
